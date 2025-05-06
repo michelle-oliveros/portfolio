@@ -52,14 +52,13 @@ button:hover {
     margin-bottom: 15px;
 }
 
-/* Cloud background animation */
 .clouds {
     position: absolute;
-    overflow: hidden;
     top: 0;
     left: 0;
     right: 0;
     height: 100%;
+    z-index: -1; /* Ensure clouds are behind the content */
     opacity: 0.4;
     pointer-events: none;
 }
@@ -112,20 +111,4 @@ html, body {
     height: 100%;
     padding: 0;
     margin: 0;
-}
-
-body {
-    background: #ffffff; /* White background for clouds */
-    text-align: center;
-    vertical-align: middle;
-}
-
-/* Optional: Style for links if you want to include them */
-a {
-    color: #b8956b;
-    text-decoration: none;
-    font-weight: normal;
-    font-size: 1.5em;
-    line-height: 1.5em;
-    text-shadow: 0 -1px 0 rgba(255, 255, 255, 0.6), 0 2px 3px #000;
 }
