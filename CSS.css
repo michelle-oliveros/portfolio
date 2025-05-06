@@ -10,8 +10,7 @@ body {
     justify-content: center;
     align-items: center; 
     height: 100vh; 
-    background: rgb(63,94,251);
-    background: radial-gradient(circle, rgba(63,94,251,1) 7%, rgba(212,60,124,1) 60%, rgba(186,66,146,1) 76%, rgba(218,59,119,1) 82%, rgba(226,57,113,1) 87%, rgba(250,51,92,0.9108018207282913) 100%);
+    background: #ffffff; /* White background */
     color: black;
     font-family:Georgia, 'Times New Roman', Times, serif;
     text-align: center;
