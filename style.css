@@ -279,25 +279,20 @@ header {
   padding: 0 20px;
   z-index: 1000;
   background-color: #000;
-  
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
-  /* Prevent content shifting on mobile */
+
   box-sizing: border-box;
 }
 
-/* Remove floats and margin pushing nav too far */
 nav {
   color: #FFF;
   font-family: 'Exo 2', sans-serif;
-  
-  /* Remove float and margin on desktop */
   margin: 0;
 }
 
-/* Navigation list as flex row by default */
 nav ul {
   list-style: none;
   display: flex;
@@ -306,12 +301,10 @@ nav ul {
   padding: 0;
 }
 
-/* Remove floats from list items */
 nav ul li {
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-/* Style links */
 nav ul li a {
   text-decoration: none;
   color: #EFEEF5;
@@ -322,7 +315,6 @@ nav ul li a {
   transition: color 0.3s ease;
 }
 
-/* Hover effect */
 nav ul li:hover a {
   color: black;
 }
@@ -334,7 +326,6 @@ nav ul li:hover {
   height: 40px;
 }
 
-/* Logo styling */
 .logo {
   text-decoration: none;
   width: 35px;
@@ -344,7 +335,7 @@ nav ul li:hover {
   align-items: center;
   justify-content: center;
   transform: rotate(-30deg);
-  margin: 0; /* Remove conflicting margins */
+  margin: 0;
 }
 
 .logo span {
@@ -355,12 +346,44 @@ nav ul li:hover {
   padding-left: 1.9px;
 }
 
-/* Hover effects */
 .logo:hover {
   background: black;
 }
+
 .logo:hover span {
   color: white;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto; /* let height adjust */
+    padding: 10px 20px;
+    align-items: center;
+  }
+
+  nav {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center; /* center nav items */
+    padding: 0;
+  }
+
+  nav ul li a {
+    font-size: 18px; /* bigger tap targets */
+    padding: 12px 20px;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
 }
 
 /* Mobile styles */
