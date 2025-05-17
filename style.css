@@ -29,7 +29,7 @@
 }
 body {
         overflow-y: auto; /* ✅ Allows vertical scrolling */
-        padding-top: 100px;
+        padding-top: 130px;
         background-color: #ffffff;
         color: white;
         height: 80px;
