@@ -270,75 +270,127 @@ body {
             pointer-events: none;
         }
 /* ================= Header ============ */
-header{
-    position: fixed;
-    top:0%;
-    left: 0%;
-    width:100%;
-    margin: 0;
-    height: 80px; /* Set the height explicitly */
-    padding: 0 20px; /* Add horizontal padding */
-    z-index: 1000;
-    background-color: #000; 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  padding: 0 20px;
+  z-index: 1000;
+  background-color: #000;
   
-  }
-  /* navbar */
-  nav{
-    color: #FFF;
-    float: right;
-    margin:30px 90px;
-    font-family: 'Exo 2', sans-serif;
-  }
-  nav ul{
-    list-style: none;
-    display: flex;
-    gap: 20px;
-  }
-  nav ul li {
-    float: left;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-  }
-  nav ul li a{
-    text-decoration: none;
-    color: #EFEEF5;
-    transition: .5;
-    font-size: 15px;
-    margin-left:16px;
-    border-radius: 30px;
-    display: inline-block;
-    padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  /* Prevent content shifting on mobile */
+  box-sizing: border-box;
+}
 
-  }
-  nav ul li:hover a{
-    text-decoration: none;
-    color: black;
+/* Remove floats and margin pushing nav too far */
+nav {
+  color: #FFF;
+  font-family: 'Exo 2', sans-serif;
+  
+  /* Remove float and margin on desktop */
+  margin: 0;
+}
 
+/* Navigation list as flex row by default */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove floats from list items */
+nav ul li {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Style links */
+nav ul li a {
+  text-decoration: none;
+  color: #EFEEF5;
+  font-size: 15px;
+  border-radius: 30px;
+  padding: 10px 16px;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect */
+nav ul li:hover a {
+  color: black;
+}
+
+nav ul li:hover {
+  background-color: #EFEEF5;
+  border-radius: 20px;
+  transform: translateY(-5px);
+  height: 40px;
+}
+
+/* Logo styling */
+.logo {
+  text-decoration: none;
+  width: 35px;
+  height: 35px;
+  background: #EFEEF5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-30deg);
+  margin: 0; /* Remove conflicting margins */
+}
+
+.logo span {
+  color: black;
+  font-size: 2em;
+  font-weight: bold;
+  line-height: 1.2;
+  padding-left: 1.9px;
+}
+
+/* Hover effects */
+.logo:hover {
+  background: black;
+}
+.logo:hover span {
+  color: white;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto; /* let height adjust */
+    padding: 10px 20px;
   }
-  nav ul li:hover{
-    background-color: #EFEEF5;
-    border-radius: 20px; /* keeps corners sharp */
-    text-decoration: none;
-    text-align: center;
-    transform: translateY(-5px);
-    height: 40px;
+
+  nav {
+    width: 100%;
+    margin-top: 10px;
   }
-  /* Logo */
-    .logo{
-        text-decoration: none;
-        width: 35px;
-        height: 35px;
-        background: #EFEEF5; 
-        margin: 40px 63px;
-        float: left;
-        text-align: center;
-        margin: 0 auto;  
-        transform: rotate(-30deg); 
-        display: flex;
-        margin-left: auto;
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center; /* center the nav items */
   }
+
+  nav ul li a {
+    font-size: 18px; /* bigger tap targets on mobile */
+    padding: 12px 20px;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+}
     .logo span {
         color: black;
         font-size: 2em;
