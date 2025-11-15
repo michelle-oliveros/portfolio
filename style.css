@@ -11,12 +11,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 15px; /* Space between elements */
+    gap: 15px; 
     width: 100%;
     overflow-x: hidden;
 
   
 }
+
+
 
     /*Style for Picture */
 .imgMain {
@@ -31,17 +33,28 @@
     z-index: 20;
 }
 body {
-        overflow-y: auto; /* ✅ Allows vertical scrolling */
-        padding-top: 80px;
-        background-color: #ffffff;
-        color: white;
-        height: 80px;
-        display: block;
-        align-items: center;
-        justify-content: center;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 80px; 
+    background-color: var(--background-light);
+    color: var(--text-light);
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    transform: none !important; 
 }
+  section {
+    scroll-margin-top: 100px; 
+  }
     html {
         scroll-behavior: smooth;
+        overscroll-behavior: none;
 }
   
   /* Responsive Grid System */
@@ -105,7 +118,7 @@ body {
 
         .content-container {
             position: relative;
-            margin-top: 100px; /* at least the height of the header */
+            margin-top: 100px; 
             z-index: 10;
             text-align: center;
             max-width: 600px;
@@ -272,6 +285,21 @@ body {
             opacity: 0;
             pointer-events: none;
         }
+        .ball {
+          position: absolute;
+          border-radius: 100%;
+          opacity: 0.7;
+        }
+        
+          :root {
+    --background-light: #f5f5f7;
+    --text-light: #333333;
+    --background-dark: #1c1c1e;
+    --text-dark: #ffffff;
+    --toggle-light: #00d4d4;
+    --toggle-dark: #000000;
+}
+
 /* ================= Header ============ */
 header {
   position: fixed;
@@ -282,21 +310,23 @@ header {
   padding: 0 20px;
   z-index: 1000;
   background-color: #000;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   box-sizing: border-box;
+  transform: none !important; 
 }
 
-nav {
+#main-nav {
   color: #FFF;
   font-family: 'Exo 2', sans-serif;
   margin: 0;
+  order: 2
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
-nav ul {
+#main-nav ul {
   list-style: none;
   display: flex;
   gap: 20px;
@@ -304,11 +334,11 @@ nav ul {
   padding: 0;
 }
 
-nav ul li {
+#main-nav li {
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-nav ul li a {
+#main-nav ul li a {
   text-decoration: none;
   color: #EFEEF5;
   font-size: 15px;
@@ -318,11 +348,11 @@ nav ul li a {
   transition: color 0.3s ease;
 }
 
-nav ul li:hover a {
+#main-nav ul li:hover a {
   color: black;
 }
 
-nav ul li:hover {
+#main-nav ul li:hover {
   background-color: #EFEEF5;
   border-radius: 20px;
   transform: translateY(-5px);
@@ -337,8 +367,9 @@ nav ul li:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: rotate(-30deg);
   margin: 0;
+  order: 1;
+  transform: rotate(-30deg);
 }
 
 .logo span {
@@ -357,106 +388,11 @@ nav ul li:hover {
   color: white;
 }
 
-/* Mobile styles */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    height: 120px; /* let height adjust */
-    padding: 10px 20px;
-    align-items: center;
-    width: 100%;
-    justify-content: center;
-  }
-
-  nav {
-    width: 100%;
-    margin-top: 10px;
-    text-align: center;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-    align-items: center; /* center nav items */
-    padding: 0;
-  }
-
-  nav ul li a {
-    font-size: 18px; /* bigger tap targets */
-    padding: 12px 20px;
-  }
-
-  .logo {
-    margin-bottom: 10px;
-  }
-}
-
-  @media (max-width: 768px) {
-    nav ul {
-      flex-direction: column;
-      gap: 10px;
-    }
-  
-    nav {
-      text-align: center;
-    }
-  }
-
-  .ball {
-    position: absolute;
-    border-radius: 100%;
-    opacity: 0.7;
-  }  
-  section {
-    scroll-margin-top: 100px; /* adjust based on your header height */
-  }
-  .btn.btn-primary {
-    background-color: black !important;
-    border-color: black !important;
-    color: white;
-  }
-
-  .btn.btn-primary:hover {
-    background-color: #00e1ff !important; /* dark gray on hover */
-    border-color: #00e1ff !important;
-    color: white !important;
-  }
-
-
-  :root {
-    --background-light: #f5f5f7;
-    --text-light: #333333;
-    --background-dark: #1c1c1e;
-    --text-dark: #ffffff;
-    --toggle-light: #00d4d4;
-    --toggle-dark: #000000;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: var(--background-light);
-    color: var(--text-light);
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-body.dark-mode {
-    background-color: var(--background-dark);
-    color: var(--text-dark);
-}
-
-.cont {
-    text-align: center;
-}
-
 .toggle {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
+  order: 3; 
+  margin-left: auto;
 }
 
 .toggle__input {
@@ -472,6 +408,7 @@ body.dark-mode {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 
 .dark-mode .toggle__label {
     background-color: var(--toggle-dark);
@@ -491,6 +428,144 @@ body.dark-mode {
     background-color: #ffffff;
     border-radius: 50%;
     transition: left 0.3s ease;
+}
+
+  .btn.btn-primary {
+    background-color: black !important;
+    border-color: black !important;
+    color: white;
+  }
+
+  .btn.btn-primary:hover {
+    background-color: #00e1ff !important; 
+    border-color: #00e1ff !important;
+    color: white !important;
+  }
+
+.hamburger {
+    display: none; /* <-- Crucial: Hidden by default (desktop) */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001; 
+    
+}
+
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: #EFEEF5; 
+    transition: all 0.3s ease-in-out;
+}
+
+/* Dark Mode styles for Hamburger */
+body.dark-mode .hamburger .bar {
+    background-color: #000000;
+}
+
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  header {
+    flex-direction: row;
+    height: 80px; 
+    padding: 0 20px;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    display: flex;
+  }
+  .logo,
+  .toggle,
+  .hamburger {
+    transition: none;
+     position: relative;
+    z-index: 1001;
+  }
+    /* 1. Show the Hamburger Button */
+    .hamburger {
+        display: block; /* Show the button on mobile */
+        order: 1;       /* Place it next to the toggle or logo */
+        margin-right: auto; 
+        margin-left: 0;
+    }
+
+    /* 2. Style the NAV container to hide it and position it below the header */
+  #main-nav {
+    position: fixed;
+    top: 60px; /* just below the header (adjust if needed) */
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    transform: translateY(-120%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+  }
+    
+    /* 3. Style the UL list inside the nav */
+    #main-nav ul {
+        display: flex; /* Display the links vertically */
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    /* 4. Class for when the menu is OPEN */
+    .nav-open #main-nav {
+        height: 350px; /* Adjust this to fit all your links */
+    }
+    /* body.nav-open {
+       margin-top: 430px; 
+    } */
+        body.nav-open .container {
+        margin-top: 0;
+    }
+      body.nav-open #main-nav {
+    transform: translateY(0);
+  }
+    
+    .logo {
+        order: 2; 
+        margin: 0 auto; /* Centers the logo between hamburger and toggle */
+    }
+
+    /* Ensure the toggle is placed on the far right */
+    .toggle {
+        order: 3;
+        margin-left: 0; /* Remove the desktop's 'margin-left: auto' */
+    }
+    
+}
+
+
+@media (min-width: 769px) {
+    .hamburger {
+        display: none; /* Hide the hamburger button on desktop */
+    }
+    #main-nav {
+        /* Ensure the menu is always visible and horizontal on desktop */
+        height: auto !important; 
+        position: static !important;
+        overflow: visible !important;
+        background-color: transparent !important;
+    }
+}
+
+
+body.dark-mode {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+}
+
+.cont {
+    text-align: center;
 }
 
 /* Night Mode */
@@ -576,15 +651,15 @@ body.dark-mode h3 {
 }
 
 body.dark-mode .btn.btn-primary {
-    background-color: #fdffff !important;  /* Example: bright blue for dark mode */
+    background-color: #fdffff !important;  
     border-color: #ffffff !important;
-    color: #000 !important;  /* black text for contrast */
+    color: #000 !important;  
   }
   
   body.dark-mode .btn.btn-primary:hover {
-    background-color: #000000 !important; /* darker blue on hover */
+    background-color: #000000 !important; 
     border-color: #000000 !important;
-    color: #fff !important; /* white text on hover */
+    color: #fff !important; 
   }
 
   .skills-row {
@@ -610,7 +685,7 @@ body.dark-mode .btn.btn-primary {
     width: 100px;
     height: 100px;
     object-fit: cover;
-    margin: 20px; /* more space around each image */
+    margin: 20px; 
   }
 
   .tech-stack {
@@ -682,19 +757,19 @@ body.dark-mode .btn.btn-primary {
 
   .linked-accounts {
     display: flex;
-    flex-direction: column; /* Stack GitHub and LinkedIn vertically */
-    align-items: center;     /* Center items horizontally */
-    gap: 10px;               /* Space between the links */
-    margin-top: 20px;        /* Optional spacing from top */
+    flex-direction: column; 
+    align-items: center;     
+    gap: 10px;               
+    margin-top: 20px;       
   }
   
   .account-link {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-family: 'Exo 2', sans-serif; /* or your custom font */
+    font-family: 'Exo 2', sans-serif; 
     font-weight: bold;
-    color: #333; /* Change color to match your theme */
+    color: #333; 
     text-decoration: none;
   }
   .dark-mode .account-link {
@@ -710,4 +785,34 @@ body.dark-mode .btn.btn-primary {
   #get-in-touch {
     padding-top: 80px;
   }
-  
+
+  /* Prevent body width shift when nav opens (scrollbar compensation) */
+body.nav-open {
+  /* Lock the vertical scrollbar */
+  overflow-y: hidden; 
+  /* Prevent horizontal scroll (already in place, but redundant check) */
+  overflow-x: hidden;
+  /* Ensure the body takes full height for the overlay effect */
+  height: 100vh;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; /* absolutely no horizontal scroll */
+}
+
+/* Prevent 100vw elements from exceeding the viewport due to scrollbar width */
+.gradient-background,
+.grid-overlay,
+.glow,
+.particles-container,
+.noise-overlay {
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}

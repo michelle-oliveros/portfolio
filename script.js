@@ -1,29 +1,34 @@
+function isDesktop() {
+    return window.matchMedia('(min-width: 769px)').matches;
+}
+
+/*
+// ---------------------------------------------------------
+// Corrected Particle & Ball Animation Protection
+// ---------------------------------------------------------
+if (isDesktop()) {
+    const particlesContainer = document.getElementById('particles-container');
+    const particleCount = 80;
+
+    // Create particles
+    for (let i = 0; i < particleCount; i++) {
+        createParticle();
+    }
+    
+    // (Ensure your createParticle, resetParticle, and animateParticle functions are defined here 
+    // or globally accessible if you prefer, but they should be defined for desktop only)
+    
+    // ... [Original createParticle, resetParticle, animateParticle functions] ...
+    
+    // Mouse interaction
+    document.addEventListener('mousemove', (e) => {
+        // ... [Original mousemove logic] ...
+    });
+
+    // Floating Balls animation
+    // ... [Original floating balls logic] ...
+}
 // Create particle effect
-const particlesContainer = document.getElementById('particles-container');
-const particleCount = 80;
-
-// Create particles
-for (let i = 0; i < particleCount; i++) {
-    createParticle();
-}
-
-function createParticle() {
-    const particle = document.createElement('div');
-    particle.className = 'particle';
-    
-    // Random size (small)
-    const size = Math.random() * 3 + 1;
-    particle.style.width = `${size}px`;
-    particle.style.height = `${size}px`;
-    
-    // Initial position
-    resetParticle(particle);
-    
-    particlesContainer.appendChild(particle);
-    
-    // Animate
-    animateParticle(particle);
-}
 
 function resetParticle(particle) {
     // Random position
@@ -66,6 +71,7 @@ function animateParticle(particle) {
         }, duration * 1000);
     }, delay * 1000);
 }
+*/
 
 // Mouse interaction
 document.addEventListener('mousemove', (e) => {
@@ -175,5 +181,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
     if (darkMode === 'enabled') {
         body.classList.add('dark-mode');
         toggle.checked = true;
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburgerButton = document.getElementById('hamburger-button');
+    const body = document.body;
+
+    if (hamburgerButton) {
+        hamburgerButton.addEventListener('click', function() {
+            // This toggles the 'nav-open' class on the body
+            body.classList.toggle('nav-open');
+        });
     }
 });
