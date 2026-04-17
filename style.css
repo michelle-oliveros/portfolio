@@ -3,8 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-   /* Centered content */
 .container {
     display: flex;
     margin-top: 80px;
@@ -14,13 +12,8 @@
     gap: 15px; 
     width: 100%;
     overflow-x: hidden;
-
-  
 }
 
-
-
-    /*Style for Picture */
 .imgMain {
 
     width: 150px;
@@ -57,7 +50,6 @@ body {
         overscroll-behavior: none;
 }
   
-  /* Responsive Grid System */
 .wk-desk-1 { width: 8.333333%; }
 .wk-desk-2 { width: 16.666667%; }
 .wk-desk-3 { width: 25%; }
@@ -124,7 +116,6 @@ body {
             max-width: 600px;
             padding: 2rem;
         }
-    /* Custom font for h1 */
         h1 {
             font-family: 'Exo 2', sans-serif;
             font-weight: 800; 
@@ -132,9 +123,11 @@ body {
             margin-bottom: 0.5rem !important;
             font-size: 3.5rem;
             background: linear-gradient(to right, #000000, #acacac);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            color: transparent;
         }
         h3 {
           font-family: 'Exo 2', sans-serif;
@@ -143,9 +136,11 @@ body {
           margin-bottom: 0.5rem !important;
           font-size: 3.5rem;
           background: linear-gradient(to right, #000000, #000000);
+          background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+          color: transparent;
       }
 
         h2 {
@@ -157,7 +152,7 @@ body {
             color: rgba(0, 0, 0, 0.8);
             margin-bottom: 2rem;
       }
-    /* Custom font for p */
+
         p {
 
             font-family: "Marko One", serif;
@@ -300,7 +295,6 @@ body {
     --toggle-dark: #000000;
 }
 
-/* ================= Header ============ */
 header {
   position: fixed;
   top: 0;
@@ -321,7 +315,7 @@ header {
   color: #FFF;
   font-family: 'Exo 2', sans-serif;
   margin: 0;
-  order: 2
+  order: 2;
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -369,7 +363,9 @@ header {
   justify-content: center;
   margin: 0;
   order: 1;
-  transform: rotate(-30deg);
+  transform: translateX(-50%) rotate(-30deg);
+  position: absolute;
+  left: 50%;
 }
 
 .logo span {
@@ -443,7 +439,7 @@ header {
   }
 
 .hamburger {
-    display: none; /* <-- Crucial: Hidden by default (desktop) */
+    display: none; 
     background: none;
     border: none;
     cursor: pointer;
@@ -461,13 +457,12 @@ header {
     transition: all 0.3s ease-in-out;
 }
 
-/* Dark Mode styles for Hamburger */
+
 body.dark-mode .hamburger .bar {
     background-color: #000000;
 }
 
 
-/* Mobile styles */
 @media (max-width: 768px) {
   header {
     flex-direction: row;
@@ -489,18 +484,24 @@ body.dark-mode .hamburger .bar {
      position: relative;
     z-index: 1001;
   }
-    /* 1. Show the Hamburger Button */
+
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) rotate(-30deg);
+    margin: 0;
+  }
+    
     .hamburger {
-        display: block; /* Show the button on mobile */
-        order: 1;       /* Place it next to the toggle or logo */
+        display: block; 
+        order: 1;       
         margin-right: auto; 
         margin-left: 0;
     }
 
-    /* 2. Style the NAV container to hide it and position it below the header */
   #main-nav {
     position: fixed;
-    top: 60px; /* just below the header (adjust if needed) */
+    top: 60px; 
     left: 0;
     width: 100%;
     background-color: #000;
@@ -508,22 +509,27 @@ body.dark-mode .hamburger .bar {
     transition: transform 0.3s ease-in-out;
     z-index: 999;
   }
-    
-    /* 3. Style the UL list inside the nav */
+
+body.dark-mode #main-nav {
+  background-color: #ffffff;
+}
+  body.dark-mode #main-nav ul li:hover {
+    background-color: #000000;
+  }
+
+  body.dark-mode #main-nav ul li:hover a {
+    color: #ffffff;
+  }
     #main-nav ul {
-        display: flex; /* Display the links vertically */
+        display: flex; 
         flex-direction: column;
         align-items: center;
         padding: 20px 0;
     }
-
-    /* 4. Class for when the menu is OPEN */
+  }
     .nav-open #main-nav {
-        height: 350px; /* Adjust this to fit all your links */
+        height: 350px; 
     }
-    /* body.nav-open {
-       margin-top: 430px; 
-    } */
         body.nav-open .container {
         margin-top: 0;
     }
@@ -533,24 +539,20 @@ body.dark-mode .hamburger .bar {
     
     .logo {
         order: 2; 
-        margin: 0 auto; /* Centers the logo between hamburger and toggle */
+        margin: 0 auto; 
     }
 
-    /* Ensure the toggle is placed on the far right */
     .toggle {
         order: 3;
-        margin-left: 0; /* Remove the desktop's 'margin-left: auto' */
+        margin-left: 0; 
     }
     
-}
-
 
 @media (min-width: 769px) {
     .hamburger {
-        display: none; /* Hide the hamburger button on desktop */
+        display: none; 
     }
     #main-nav {
-        /* Ensure the menu is always visible and horizontal on desktop */
         height: auto !important; 
         position: static !important;
         overflow: visible !important;
@@ -568,7 +570,7 @@ body.dark-mode {
     text-align: center;
 }
 
-/* Night Mode */
+
 body.night {
     background-color: #121212;
     color: #f1f1f1;
@@ -597,19 +599,15 @@ body.night {
     background-color: #ffffff;
   }
   
-  body.dark-mode nav {
+  body.dark-mode #main-nav ul li a {
     color: #000000;
   }
   
-  body.dark-mode nav ul li a {
-    color: #000000;
-  }
-  
-  body.dark-mode nav ul li:hover {
+body.dark-mode #main-nav ul li:hover {
     background-color: #000000;
   }
   
-  body.dark-mode nav ul li:hover a {
+body.dark-mode #main-nav ul li:hover a {
     color: #ffffff;
   }
   
@@ -629,25 +627,27 @@ body.night {
     color: #000;
   }
 
-  /* Dark mode styles */
 body.dark-mode h1 {
     background: linear-gradient(to right, #ffffff, #cccccc);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    color: transparent;
 }
 
 body.dark-mode p {
     color: rgba(255, 255, 255, 0.85);
 }
   
-/* Dark mode h3 */
 body.dark-mode h3 {
-  color: #eee; /* lighter text */
+  color: #eee; 
   background: linear-gradient(to right, #fff, #ccc);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  color: transparent;
 }
 
 body.dark-mode .btn.btn-primary {
@@ -716,7 +716,7 @@ body.dark-mode .btn.btn-primary {
     transform: scale(1.05);
   }
   
-  /* Overlay for expanded image */
+
   .overlay {
     display: none;
     position: fixed;
@@ -776,9 +776,9 @@ body.dark-mode .btn.btn-primary {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-family: 'Exo 2', sans-serif; /* or your custom font */
+    font-family: 'Exo 2', sans-serif; 
     font-weight: bold;
-    color: #ffffff; /* Change color to match your theme */
+    color: #ffffff; 
     text-decoration: none;
   }
 
@@ -786,13 +786,9 @@ body.dark-mode .btn.btn-primary {
     padding-top: 80px;
   }
 
-  /* Prevent body width shift when nav opens (scrollbar compensation) */
 body.nav-open {
-  /* Lock the vertical scrollbar */
   overflow-y: hidden; 
-  /* Prevent horizontal scroll (already in place, but redundant check) */
   overflow-x: hidden;
-  /* Ensure the body takes full height for the overlay effect */
   height: 100vh;
 }
 
@@ -801,10 +797,9 @@ html, body {
   padding: 0;
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden; /* absolutely no horizontal scroll */
+  overflow-x: hidden; 
 }
 
-/* Prevent 100vw elements from exceeding the viewport due to scrollbar width */
 .gradient-background,
 .grid-overlay,
 .glow,
